@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Vlasic"
+date:   2024-11-03 16:37:02 -0500
+categories: jekyll update
+---
+
+Vlasic is ok.
