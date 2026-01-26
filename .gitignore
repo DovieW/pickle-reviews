@@ -28,3 +28,6 @@
 *.orf
 *.arw
 
+
+# Allow site assets
+!site/src/lib/assets/favicon.svg
