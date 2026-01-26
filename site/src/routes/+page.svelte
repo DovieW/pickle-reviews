@@ -64,7 +64,7 @@
 			<h2>{section} <span class="count">({items.length})</span></h2>
 			<div class="grid">
 				{#each items as item}
-					<article class="card" data-checked={item.checked}>
+					<article class="card" data-checked={item.checked} data-has-image={item.image ? 'true' : 'false'}>
 						{#if item.image}
 							<img class="thumb" src={item.image} alt={item.name} loading="lazy" />
 						{/if}
@@ -97,7 +97,7 @@
 		margin: 0 auto;
 		padding: 24px 16px 64px;
 		font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-		color: #0f172a;
+		color: #e2e8f0;
 	}
 
 	header {
@@ -111,7 +111,7 @@
 
 	.meta {
 		margin: 0;
-		color: #475569;
+		color: #94a3b8;
 		font-size: 14px;
 	}
 
@@ -127,29 +127,37 @@
 		flex: 1;
 		min-width: 240px;
 		padding: 10px 12px;
-		border: 1px solid #cbd5e1;
+		border: 1px solid #334155;
 		border-radius: 10px;
-		background: #fff;
+		background: #0f172a;
+		color: #e2e8f0;
+	}
+	.search::placeholder {
+		color: #64748b;
 	}
 
 	.tag {
 		padding: 10px 12px;
-		border: 1px solid #cbd5e1;
+		border: 1px solid #334155;
 		border-radius: 10px;
-		background: #fff;
+		background: #0f172a;
+		color: #e2e8f0;
 	}
 
 	.section {
 		margin-top: 28px;
+		padding-top: 16px;
+		border-top: 1px solid #0f172a;
 	}
 
 	h2 {
 		font-size: 18px;
 		margin: 0 0 10px;
+		color: #f1f5f9;
 	}
 
 	.count {
-		color: #64748b;
+		color: #94a3b8;
 		font-weight: 500;
 	}
 
@@ -162,12 +170,16 @@
 	.card {
 		display: grid;
 		grid-template-columns: 92px 1fr;
-		gap: 10px;
-		border: 1px solid #e2e8f0;
+		gap: 12px;
+		border: 1px solid #1e293b;
 		border-radius: 14px;
-		background: #fff;
+		background: #0f172a;
 		overflow: hidden;
-		box-shadow: 0 1px 1px rgba(15, 23, 42, 0.04);
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+	}
+
+	.card[data-has-image='false'] {
+		grid-template-columns: 1fr;
 	}
 
 	.card[data-checked='true'] {
@@ -178,21 +190,25 @@
 		width: 92px;
 		height: 92px;
 		object-fit: cover;
-		background: #f1f5f9;
+		background: #0b1220;
 	}
 
 	.body {
-		padding: 10px 10px 10px 0;
+		padding: 12px 12px 12px 0;
+	}
+	.card[data-has-image='false'] .body {
+		padding: 12px;
 	}
 
 	h3 {
 		font-size: 14px;
 		margin: 0 0 8px;
 		line-height: 1.2;
+		color: #e2e8f0;
 	}
 
 	a {
-		color: #0f172a;
+		color: #e2e8f0;
 		text-decoration: none;
 	}
 	a:hover {
@@ -206,8 +222,9 @@
 	}
 
 	.tagpill {
-		border: 1px solid #e2e8f0;
-		background: #f8fafc;
+		border: 1px solid #334155;
+		background: #111827;
+		color: #e2e8f0;
 		border-radius: 999px;
 		padding: 4px 8px;
 		font-size: 12px;
@@ -215,7 +232,7 @@
 	}
 
 	.tagpill:hover {
-		background: #eef2ff;
-		border-color: #c7d2fe;
+		background: #0b1220;
+		border-color: #475569;
 	}
 </style>
