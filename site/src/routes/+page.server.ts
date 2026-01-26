@@ -12,7 +12,7 @@ export async function load(): Promise<PageData> {
 	const mdPath = path.resolve(process.cwd(), '..', 'Pickles Tracking List.md');
 	const markdown = await fs.readFile(mdPath, 'utf-8');
 
-	const allowedSections = ['Not Rated', 'Best', 'Good', "Bad - Wouldn't Eat"] as const;
+	const allowedSections = ['Best', 'Good', "Bad - Wouldn't Eat", 'Not Rated'] as const;
 	const allowed = new Set<string>(allowedSections);
 
 	const items = parsePicklesMarkdown(markdown).filter((i) => allowed.has(i.section));
