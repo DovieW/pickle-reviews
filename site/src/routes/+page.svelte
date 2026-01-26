@@ -151,10 +151,12 @@
 				{/each}
 			</nav>
 
+			<div class="resultcount">{filtered.length} / {data.items.length}</div>
+			<input class="search" type="search" placeholder="Search" bind:value={query} />
 		</section>
 
-		<div class="chipsrow">
-			{#if selectedTag}
+		{#if selectedTag}
+			<div class="chipsrow">
 				<button
 					class="tagchip"
 					type="button"
@@ -164,13 +166,8 @@
 				>
 					#{selectedTag} <span class="tagchipx">×</span>
 				</button>
-			{/if}
-		</div>
-
-		<section class="controls">
-			<div class="resultcount">{filtered.length} / {data.items.length}</div>
-			<input class="search" type="search" placeholder="Search" bind:value={query} />
-		</section>
+			</div>
+		{/if}
 	</div>
 
 	{#each sections as [section, items]}
