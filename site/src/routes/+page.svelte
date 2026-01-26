@@ -151,6 +151,9 @@
 				{/each}
 			</nav>
 
+		</section>
+
+		<div class="chipsrow">
 			{#if selectedTag}
 				<button
 					class="tagchip"
@@ -162,7 +165,9 @@
 					#{selectedTag} <span class="tagchipx">×</span>
 				</button>
 			{/if}
+		</div>
 
+		<section class="controls">
 			<div class="resultcount">{filtered.length} / {data.items.length}</div>
 			<input class="search" type="search" placeholder="Search" bind:value={query} />
 		</section>
@@ -341,21 +346,28 @@
 
 	.tagchip {
 		border: 1px solid #334155;
-		background: #111827;
-		color: #e2e8f0;
+		background: #0f172a;
+		color: #cbd5e1;
 		border-radius: 999px;
-		padding: 8px 10px;
+		padding: 6px 10px;
 		font-size: 12px;
 		cursor: pointer;
 		white-space: nowrap;
 	}
 	.tagchip:hover {
-		background: #0b1220;
-		border-color: #475569;
+		background: #111827;
+		border-color: #64748b;
 	}
 	.tagchipx {
 		color: #94a3b8;
 		margin-left: 6px;
+	}
+
+	.chipsrow {
+		margin-top: 10px;
+		display: flex;
+		gap: 8px;
+		flex-wrap: wrap;
 	}
 
 	.resultcount {
