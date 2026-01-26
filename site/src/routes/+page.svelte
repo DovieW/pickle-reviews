@@ -9,7 +9,17 @@
 		checked: boolean;
 	};
 
-	let { data } = $props<{ data: { items: PickleItem[]; tags: string[] } }>();
+	let { data } = $props<{ data: { items: PickleItem[]; tags: string[]; sections: string[] } }>();
+
+	const sectionId = (s: string) =>
+		s
+			.toLowerCase()
+			.replace(/[^a-z0-9]+/g, '-')
+			.replace(/(^-|-$)/g, '');
+
+	const jumpTo = (section: string) => {
+		document.getElementById(sectionId(section))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	};
 
 	let query = $state('');
 	let selectedTag = $state<string>('');
@@ -43,24 +53,31 @@
 </svelte:head>
 
 <main>
-	<header>
-		<h1>Pickles Tracking List</h1>
-		<p class="meta">Read-only view generated from Obsidian.</p>
-	</header>
+	<div class="top">
+		<header>
+			<h1>Pickles Tracking List</h1>
+		</header>
 
-	<section class="controls">
-		<input class="search" type="search" placeholder="Search (name, section, tag)" bind:value={query} />
+		<section class="controls">
+			<select class="tag" bind:value={selectedTag}>
+				<option value="">All tags</option>
+				{#each data.tags as t}
+					<option value={t}>#{t}</option>
+				{/each}
+			</select>
 
-		<select class="tag" bind:value={selectedTag}>
-			<option value="">All tags</option>
-			{#each data.tags as t}
-				<option value={t}>#{t}</option>
-			{/each}
-		</select>
-	</section>
+			<nav class="sections" aria-label="Jump to section">
+				{#each data.sections as s}
+					<button class="sectionbtn" type="button" onclick={() => jumpTo(s)}>{s}</button>
+				{/each}
+			</nav>
+
+			<input class="search" type="search" placeholder="Search" bind:value={query} />
+		</section>
+	</div>
 
 	{#each sections as [section, items]}
-		<section class="section">
+		<section class="section" id={sectionId(section)}>
 			<h2>{section} <span class="count">({items.length})</span></h2>
 			<div class="grid">
 				{#each items as item}
@@ -100,8 +117,17 @@
 		color: #e2e8f0;
 	}
 
+	.top {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: #0b1220;
+		padding: 18px 0 12px;
+		border-bottom: 1px solid #0f172a;
+	}
+
 	header {
-		margin-bottom: 16px;
+		margin-bottom: 10px;
 	}
 
 	h1 {
@@ -109,28 +135,45 @@
 		margin: 0 0 6px;
 	}
 
-	.meta {
-		margin: 0;
-		color: #94a3b8;
-		font-size: 14px;
-	}
 
 	.controls {
 		display: flex;
 		gap: 10px;
 		align-items: center;
-		margin: 18px 0 24px;
+		margin: 0;
 		flex-wrap: wrap;
 	}
 
+	.sections {
+		display: flex;
+		gap: 8px;
+		flex-wrap: wrap;
+	}
+
+	.sectionbtn {
+		border: 1px solid #334155;
+		background: #111827;
+		color: #e2e8f0;
+		border-radius: 999px;
+		padding: 8px 10px;
+		font-size: 12px;
+		cursor: pointer;
+		white-space: nowrap;
+		line-height: 1;
+	}
+	.sectionbtn:hover {
+		background: #0b1220;
+		border-color: #475569;
+	}
+
 	.search {
-		flex: 1;
-		min-width: 240px;
-		padding: 10px 12px;
+		width: 190px;
+		padding: 8px 10px;
 		border: 1px solid #334155;
 		border-radius: 10px;
 		background: #0f172a;
 		color: #e2e8f0;
+		margin-left: auto;
 	}
 	.search::placeholder {
 		color: #64748b;
@@ -148,6 +191,7 @@
 		margin-top: 28px;
 		padding-top: 16px;
 		border-top: 1px solid #0f172a;
+		scroll-margin-top: 140px;
 	}
 
 	h2 {
