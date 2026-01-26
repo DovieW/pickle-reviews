@@ -1,6 +1,11 @@
+export type InlinePart = { text: string; url?: string };
+
 export type PickleItem = {
 	section: string;
+	/** Plain-text title (used for search/filter) */
 	name: string;
+	/** Title with clickable links (parsed from the markdown line) */
+	titleParts: InlinePart[];
 	url?: string;
 	detail?: string;
 	tags: string[];
@@ -23,13 +28,49 @@ function extractTags(text: string): string[] {
 	return Array.from(new Set(tags));
 }
 
-function extractLink(text: string): { name: string; url?: string; detail?: string } {
-	// Matches markdown links: [Name](url)
-	const m = text.match(/^\[([^\]]+)\]\(([^)]+)\)(.*)$/);
-	if (!m) return { name: text.trim() };
-	const [, name, url, rest] = m;
-	const detail = (rest ?? '').trim();
-	return { name: name.trim(), url, detail: detail || undefined };
+function parseInlineLinks(text: string): { parts: InlinePart[]; plain: string } {
+	const parts: InlinePart[] = [];
+	let plain = '';
+
+	const re = /\[([^\]]+)\]\(([^)]+)\)/g;
+	let lastIndex = 0;
+	let m: RegExpExecArray | null;
+
+	while ((m = re.exec(text)) !== null) {
+		const [full, label, url] = m;
+		const before = text.slice(lastIndex, m.index);
+		if (before) {
+			parts.push({ text: before });
+			plain += before;
+		}
+		parts.push({ text: label, url });
+		plain += label;
+		lastIndex = m.index + full.length;
+	}
+
+	const tail = text.slice(lastIndex);
+	if (tail) {
+		parts.push({ text: tail });
+		plain += tail;
+	}
+
+	return { parts: parts.length ? parts : [{ text }], plain: plain.replace(/\s+/g, ' ').trim() || text.trim() };
+}
+
+function extractLink(text: string): { name: string; url?: string; detail?: string; titleParts: InlinePart[] } {
+	// Keep existing behavior (first link drives URL), but also parse inline links everywhere.
+	const { parts, plain } = parseInlineLinks(text);
+	const firstLink = parts.find((p) => p.url);
+
+	// If the line starts with a link, keep trailing text as "detail" (previous behavior).
+	const leading = text.match(/^\[([^\]]+)\]\(([^)]+)\)(.*)$/);
+	if (leading) {
+		const [, name, url, rest] = leading;
+		const detail = (rest ?? '').trim();
+		return { name: plain || name.trim(), url, detail: detail || undefined, titleParts: parts };
+	}
+
+	return { name: plain, url: firstLink?.url, detail: undefined, titleParts: parts };
 }
 
 export function parsePicklesMarkdown(markdown: string): PickleItem[] {
@@ -75,6 +116,7 @@ export function parsePicklesMarkdown(markdown: string): PickleItem[] {
 		items.push({
 			section,
 			name: link.name,
+			titleParts: link.titleParts,
 			url: link.url,
 			detail: link.detail,
 			tags,

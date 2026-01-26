@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	type PickleItem = {
 		section: string;
 		name: string;
+		titleParts: { text: string; url?: string }[];
 		url?: string;
 		detail?: string;
 		tags: string[];
@@ -26,6 +29,7 @@
 	let selectedTag = $state<string>('');
 	let tagQuery = $state('');
 	let tagOpen = $state(false);
+	let tagPickerEl = $state<HTMLDetailsElement | null>(null);
 
 	const filteredTags = $derived.by(() => {
 		const q = tagQuery.trim().toLowerCase();
@@ -46,6 +50,14 @@
 		});
 	});
 
+	const sectionCounts = $derived.by(() => {
+		const m = new Map<string, number>();
+		for (const item of filtered) {
+			m.set(item.section, (m.get(item.section) ?? 0) + 1);
+		}
+		return m;
+	});
+
 	const sections = $derived.by(() => {
 		const m = new Map<string, PickleItem[]>();
 		for (const item of filtered) {
@@ -58,6 +70,32 @@
 		return data.sections
 			.map((s) => [s, m.get(s) ?? []] as const)
 			.filter(([, items]) => items.length > 0);
+	});
+
+	onMount(() => {
+		const onPointerDown = (e: MouseEvent) => {
+			if (!tagOpen) return;
+			const el = tagPickerEl;
+			if (!el) return;
+			if (e.target instanceof Node && el.contains(e.target)) return;
+			tagOpen = false;
+			tagQuery = '';
+		};
+
+		const onKeyDown = (e: KeyboardEvent) => {
+			if (e.key !== 'Escape') return;
+			if (!tagOpen) return;
+			e.preventDefault();
+			tagOpen = false;
+			tagQuery = '';
+		};
+
+		document.addEventListener('pointerdown', onPointerDown);
+		document.addEventListener('keydown', onKeyDown);
+		return () => {
+			document.removeEventListener('pointerdown', onPointerDown);
+			document.removeEventListener('keydown', onKeyDown);
+		};
 	});
 </script>
 
@@ -72,8 +110,8 @@
 		</header>
 
 		<section class="controls">
-			<details class="tagpicker" bind:open={tagOpen}>
-				<summary class="tagpickersum">{selectedTag ? `#${selectedTag}` : 'Tags'}</summary>
+			<details class="tagpicker" bind:open={tagOpen} bind:this={tagPickerEl}>
+				<summary class="tagpickersum">Tags</summary>
 				<div class="tagmenu" role="listbox" aria-label="Tags">
 					<input class="tagsearch" type="search" placeholder="Type to filter tags" bind:value={tagQuery} />
 					<div class="taglist">
@@ -107,9 +145,23 @@
 
 			<nav class="sections" aria-label="Jump to section">
 				{#each data.sections as s}
-					<button class="sectionbtn" type="button" onclick={() => jumpTo(s)}>{s}</button>
+					<button class="sectionbtn" type="button" onclick={() => jumpTo(s)}>
+						{s} <span class="seccount">{sectionCounts.get(s) ?? 0}</span>
+					</button>
 				{/each}
 			</nav>
+
+			{#if selectedTag}
+				<button
+					class="tagchip"
+					type="button"
+					onclick={() => {
+						selectedTag = '';
+					}}
+				>
+					#{selectedTag} <span class="tagchipx">×</span>
+				</button>
+			{/if}
 
 			<div class="resultcount">{filtered.length} / {data.items.length}</div>
 			<input class="search" type="search" placeholder="Search" bind:value={query} />
@@ -126,12 +178,14 @@
 							<img class="thumb" src={item.image} alt={item.name} loading="lazy" />
 						{/if}
 						<div class="body">
-							<h3>
-								{#if item.url}
-									<a href={item.url} target="_blank" rel="noreferrer">{item.name}</a>
-								{:else}
-									{item.name}
-								{/if}
+							<h3 class="title">
+								{#each item.titleParts as p}
+									{#if p.url}
+										<a href={p.url} target="_blank" rel="noreferrer">{p.text}</a>
+									{:else}
+										<span>{p.text}</span>
+									{/if}
+								{/each}
 							</h3>
 							{#if item.detail || item.notes}
 								<p class="detail">{[item.detail, item.notes].filter(Boolean).join(' — ')}</p>
@@ -209,6 +263,12 @@
 		border-color: #475569;
 	}
 
+	.seccount {
+		color: #94a3b8;
+		font-size: 12px;
+		margin-left: 6px;
+	}
+
 	.tagpicker {
 		position: relative;
 	}
@@ -222,6 +282,10 @@
 		padding: 8px 10px;
 		cursor: pointer;
 		white-space: nowrap;
+	}
+	.tagpickersum:focus-visible {
+		outline: 2px solid #475569;
+		outline-offset: 2px;
 	}
 	.tagpickersum::-webkit-details-marker {
 		display: none;
@@ -273,6 +337,25 @@
 	.tagopt:hover {
 		background: #0b1220;
 		border-color: #475569;
+	}
+
+	.tagchip {
+		border: 1px solid #334155;
+		background: #111827;
+		color: #e2e8f0;
+		border-radius: 999px;
+		padding: 8px 10px;
+		font-size: 12px;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+	.tagchip:hover {
+		background: #0b1220;
+		border-color: #475569;
+	}
+	.tagchipx {
+		color: #94a3b8;
+		margin-left: 6px;
 	}
 
 	.resultcount {
