@@ -86,7 +86,8 @@ kanban-plugin: board
 	#williamsburg_pickles
 - [ ] [Woodstock](https://www.woodstock-foods.com/the-goods.html)
 	#woodstock
-- [ ] Dietz & Watson
+- [ ] [Dietz & Watson](https://www.dietzandwatson.com/complements?subcategory=pickles) [+](https://www.dietzandwatson.com/snacks/dietz-chips)
+	#dietz_watson
 
 
 ## Not Rated
