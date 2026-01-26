@@ -86,7 +86,7 @@ kanban-plugin: board
 	#williamsburg_pickles
 - [ ] [Woodstock](https://www.woodstock-foods.com/the-goods.html)
 	#woodstock
-- [ ] [Dietz & Watson](https://www.dietzandwatson.com/complements?subcategory=pickles) [+](https://www.dietzandwatson.com/snacks/dietz-chips)
+- [ ] [Dietz & Watson](https://www.dietzandwatson.com/complements?subcategory=pickles) [kosher?](https://www.dietzandwatson.com/snacks/dietz-chips)
 	#dietz_watson
 
 
@@ -1071,7 +1071,34 @@ kanban-plugin: board
 	
 	#woodstock #mild #24oz #chips 
 	<img class="image" src="https://i.imgur.com/aCP6DXM.png" width="140">
-
+- [ ] [Dietz & Watson Sour Garlic Pickles](https://www.dietzandwatson.com/product/Sour-Garlic-Pickles)
+	
+	#dietz_watson #32oz #sour #wholes 
+	<img class="image" src="https://i.imgur.com/8FxzDer.png" width="140">
+- [ ] [Dietz & Watson Half Sour Pickles](https://www.dietzandwatson.com/product/Half-Sour-Pickles)
+	
+	#dietz_watson #32oz #sour #wholes 
+	<img class="image" src="https://i.imgur.com/2c8Q2e3.png" width="140">
+- [ ] [Dietz & Watson Sandwich Slices Pickles](https://www.dietzandwatson.com/product/Sandwich-Slice-Pickles)
+	
+	#dietz_watson #19oz #mild  #slices 
+	<img class="image" src="https://i.imgur.com/lY5KwJ8.png" width="140">
+- [ ] [Dietz & Watson Hot and Zesty Pickle Chips](https://www.dietzandwatson.com/product/Hot-and-Zesty-Pickle-Chips)
+	
+	#dietz_watson #32oz #spicy  #chips 
+	<img class="image" src="https://i.imgur.com/Ewr7iZg.png" width="140">
+- [ ] [Dietz & Watson Kosher Pickle Halves](https://www.dietzandwatson.com/product/Kosher-Halves)
+	
+	#dietz_watson #32oz #mild #halves 
+	<img class="image" src="https://i.imgur.com/Tpurxjf.png" width="140">
+- [ ] [Dietz & Watson Sweet Horseradish Pickle Chips](https://www.dietzandwatson.com/product/Sweet-Horseradish-Pickle-Chips)
+	
+	#dietz_watson #16oz #sweet #spicy   #chips
+	<img class="image" src="https://i.imgur.com/NXrso35.png" width="140">
+- [ ] [Dietz & Watson Kosher Pickle Chips](https://www.dietzandwatson.com/product/Kosher-Pickle-Chips)
+	
+	#dietz_watson #32oz #mild  #chips 
+	<img class="image" src="https://i.imgur.com/Zs519xP.png" width="140">
 
 ## Best
 
@@ -1145,6 +1172,18 @@ kanban-plugin: board
 
 ## Good
 
+- [ ] [Dietz & Watson Kosher Pickles](https://www.dietzandwatson.com/product/Kosher-Pickles-3)
+	
+	Similar to the spears.
+	
+	#dietz_watson #32oz #mild #wholes 
+	<img class="image" src="https://i.imgur.com/2JbJWDf.png" width="140">
+- [ ] [Dietz & Watson Kosher Pickle Spears](https://www.dietzandwatson.com/product/Kosher-Pickle-Spears-2)
+	
+	 Strong flavor. Reminds of Oh Snap! pickles? Quite good. Very crunchy.
+	
+	#dietz_watson #32oz #mild #spears  
+	<img class="image" src="https://i.imgur.com/UMzhDn3.png" width="140">
 - [ ] [Boar's Head Kosher Dill Pickles Whole](https://boarshead.com/products/condiments/487-kosher-dill-pickle-whole-26oz-jar)
 	
 	Good. Not at strong as the others which is good
