@@ -44,7 +44,11 @@
 			list.push(item);
 			m.set(item.section, list);
 		}
-		return Array.from(m.entries());
+
+		// Keep section order consistent (Best -> Good -> Bad -> Not Rated)
+		return data.sections
+			.map((s) => [s, m.get(s) ?? []] as const)
+			.filter(([, items]) => items.length > 0);
 	});
 </script>
 
