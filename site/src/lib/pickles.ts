@@ -2,6 +2,7 @@ export type PickleItem = {
 	section: string;
 	name: string;
 	url?: string;
+	detail?: string;
 	tags: string[];
 	image?: string;
 	notes?: string;
@@ -22,12 +23,13 @@ function extractTags(text: string): string[] {
 	return Array.from(new Set(tags));
 }
 
-function extractLink(text: string): { name: string; url?: string } {
+function extractLink(text: string): { name: string; url?: string; detail?: string } {
 	// Matches markdown links: [Name](url)
 	const m = text.match(/^\[([^\]]+)\]\(([^)]+)\)(.*)$/);
 	if (!m) return { name: text.trim() };
 	const [, name, url, rest] = m;
-	return { name: (name + (rest ?? '')).trim(), url };
+	const detail = (rest ?? '').trim();
+	return { name: name.trim(), url, detail: detail || undefined };
 }
 
 export function parsePicklesMarkdown(markdown: string): PickleItem[] {
@@ -66,13 +68,18 @@ export function parsePicklesMarkdown(markdown: string): PickleItem[] {
 
 		const link = extractLink(remainder);
 
+		const noteLines = extraLines
+			.map((l) => l.replace(IMG_SRC_RE, '').replace(TAG_RE, '').trim())
+			.filter(Boolean);
+
 		items.push({
 			section,
 			name: link.name,
 			url: link.url,
+			detail: link.detail,
 			tags,
 			image,
-			notes: extraLines.length ? extraLines.join('\n') : undefined,
+			notes: noteLines.length ? noteLines.join('\n') : undefined,
 			checked
 		});
 	}

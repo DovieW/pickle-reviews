@@ -3,6 +3,7 @@
 		section: string;
 		name: string;
 		url?: string;
+		detail?: string;
 		tags: string[];
 		image?: string;
 		notes?: string;
@@ -23,6 +24,14 @@
 
 	let query = $state('');
 	let selectedTag = $state<string>('');
+	let tagQuery = $state('');
+	let tagOpen = $state(false);
+
+	const filteredTags = $derived.by(() => {
+		const q = tagQuery.trim().toLowerCase();
+		if (!q) return data.tags;
+		return data.tags.filter((t) => t.toLowerCase().includes(q));
+	});
 
 	const filtered = $derived.by(() => {
 		const q = query.trim().toLowerCase();
@@ -45,7 +54,7 @@
 			m.set(item.section, list);
 		}
 
-		// Keep section order consistent (Best -> Good -> Bad -> Not Rated)
+		// Keep section order consistent (Best -> Good -> Ok -> Bad -> Not Rated)
 		return data.sections
 			.map((s) => [s, m.get(s) ?? []] as const)
 			.filter(([, items]) => items.length > 0);
@@ -63,12 +72,38 @@
 		</header>
 
 		<section class="controls">
-			<select class="tag" bind:value={selectedTag}>
-				<option value="">All tags</option>
-				{#each data.tags as t}
-					<option value={t}>#{t}</option>
-				{/each}
-			</select>
+			<details class="tagpicker" bind:open={tagOpen}>
+				<summary class="tagpickersum">{selectedTag ? `#${selectedTag}` : 'Tags'}</summary>
+				<div class="tagmenu" role="listbox" aria-label="Tags">
+					<input class="tagsearch" type="search" placeholder="Type to filter tags" bind:value={tagQuery} />
+					<div class="taglist">
+						<button
+							class="tagopt"
+							type="button"
+							onclick={() => {
+								selectedTag = '';
+								tagOpen = false;
+								tagQuery = '';
+							}}
+						>
+							All
+						</button>
+						{#each filteredTags as t}
+							<button
+								class="tagopt"
+								type="button"
+								onclick={() => {
+									selectedTag = t;
+									tagOpen = false;
+									tagQuery = '';
+								}}
+							>
+								#{t}
+							</button>
+						{/each}
+					</div>
+				</div>
+			</details>
 
 			<nav class="sections" aria-label="Jump to section">
 				{#each data.sections as s}
@@ -76,6 +111,7 @@
 				{/each}
 			</nav>
 
+			<div class="resultcount">{filtered.length} / {data.items.length}</div>
 			<input class="search" type="search" placeholder="Search" bind:value={query} />
 		</section>
 	</div>
@@ -97,6 +133,9 @@
 									{item.name}
 								{/if}
 							</h3>
+							{#if item.detail || item.notes}
+								<p class="detail">{[item.detail, item.notes].filter(Boolean).join(' — ')}</p>
+							{/if}
 							{#if item.tags.length}
 								<div class="tags">
 									{#each item.tags as t}
@@ -170,6 +209,80 @@
 		border-color: #475569;
 	}
 
+	.tagpicker {
+		position: relative;
+	}
+
+	.tagpickersum {
+		list-style: none;
+		border: 1px solid #334155;
+		border-radius: 10px;
+		background: #0f172a;
+		color: #e2e8f0;
+		padding: 8px 10px;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+	.tagpickersum::-webkit-details-marker {
+		display: none;
+	}
+
+	.tagmenu {
+		position: absolute;
+		top: calc(100% + 8px);
+		left: 0;
+		min-width: 260px;
+		max-width: 320px;
+		background: #0b1220;
+		border: 1px solid #1e293b;
+		border-radius: 12px;
+		padding: 10px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+	}
+
+	.tagsearch {
+		width: 100%;
+		padding: 8px 10px;
+		border: 1px solid #334155;
+		border-radius: 10px;
+		background: #0f172a;
+		color: #e2e8f0;
+		margin-bottom: 8px;
+	}
+	.tagsearch::placeholder {
+		color: #64748b;
+	}
+
+	.taglist {
+		max-height: 260px;
+		overflow: auto;
+		display: grid;
+		gap: 6px;
+	}
+
+	.tagopt {
+		text-align: left;
+		border: 1px solid #334155;
+		background: #111827;
+		color: #e2e8f0;
+		border-radius: 10px;
+		padding: 8px 10px;
+		font-size: 12px;
+		cursor: pointer;
+	}
+	.tagopt:hover {
+		background: #0b1220;
+		border-color: #475569;
+	}
+
+	.resultcount {
+		margin-left: auto;
+		font-size: 12px;
+		color: #94a3b8;
+		padding: 0 6px;
+		white-space: nowrap;
+	}
+
 	.search {
 		width: 190px;
 		padding: 8px 10px;
@@ -177,25 +290,19 @@
 		border-radius: 10px;
 		background: #0f172a;
 		color: #e2e8f0;
-		margin-left: auto;
 	}
 	.search::placeholder {
 		color: #64748b;
 	}
 
-	.tag {
-		padding: 10px 12px;
-		border: 1px solid #334155;
-		border-radius: 10px;
-		background: #0f172a;
-		color: #e2e8f0;
-	}
 
 	.section {
-		margin-top: 28px;
+		margin-top: 24px;
+		scroll-margin-top: 140px;
+	}
+	.section + .section {
 		padding-top: 16px;
 		border-top: 1px solid #0f172a;
-		scroll-margin-top: 140px;
 	}
 
 	h2 {
@@ -261,6 +368,14 @@
 	}
 	a:hover {
 		text-decoration: underline;
+	}
+
+	.detail {
+		margin: 0 0 8px;
+		font-size: 12px;
+		color: #94a3b8;
+		line-height: 1.35;
+		white-space: pre-wrap;
 	}
 
 	.tags {
