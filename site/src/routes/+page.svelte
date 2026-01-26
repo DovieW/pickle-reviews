@@ -14,7 +14,7 @@
 	let query = $state('');
 	let selectedTag = $state<string>('');
 
-	const filtered = $derived(() => {
+	const filtered = $derived.by(() => {
 		const q = query.trim().toLowerCase();
 		return data.items.filter((item) => {
 			if (selectedTag && !item.tags.includes(selectedTag)) return false;
@@ -27,7 +27,7 @@
 		});
 	});
 
-	const sections = $derived(() => {
+	const sections = $derived.by(() => {
 		const m = new Map<string, PickleItem[]>();
 		for (const item of filtered) {
 			const list = m.get(item.section) ?? [];
