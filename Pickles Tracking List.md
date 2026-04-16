@@ -132,10 +132,6 @@ kanban-plugin: board
 	
 	#7-select #3oz #mild #chips
 	<img class="image" src="https://i.imgur.com/55H4aId.png" width="160">
-- [ ] [7-Select Pickle Bites Hot N' Spicy](https://www.instacart.com/products/20668557-7-select-pickle-bites-3-50-oz?retailerSlug=711)
-	
-	#7-select #3oz #spicy #chips
-	<img class="image" src="https://i.imgur.com/RHWY6ij.png" width="160">
 - [ ] [B&G Bread & Butter Pickle Chips](https://bgpickles.com/product/bread-butter-pickle-chips/)
 	
 	#bg #sweet #chips #24oz #16oz 
@@ -1100,8 +1096,15 @@ kanban-plugin: board
 	#dietz_watson #32oz #mild  #chips 
 	<img class="image" src="https://i.imgur.com/Zs519xP.png" width="140">
 
+
 ## Best
 
+- [ ] [7-Select Pickle Bites Hot N' Spicy](https://www.instacart.com/products/20668557-7-select-pickle-bites-3-50-oz?retailerSlug=711)
+	
+	Pouches are hit and miss depending on freshness, but this bag was great
+	
+	#7-select #3oz #spicy #chips
+	<img class="image" src="https://i.imgur.com/RHWY6ij.png" width="160">
 - [ ] [Boar's Head Spicy Dill Pickle Spears](https://boarshead.com/products/condiments/1221975904-spicy-dill-pickle-spears)
 	Very bad at first but actually really good.
 	
