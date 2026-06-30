@@ -1277,23 +1277,23 @@ kanban-plugin: board
 - [ ] [Haddar Classic Garlic Dill Pickle Chips Pouch](https://www.kayco.com/product/haddar-classic-garlic-dill-pickle-chips-pouch/)
 	
 	#haddar #pouch #chips #mild #jewish #3oz 
-	<img class="image" src="https://i.imgur.com/bbRpB8c.png" width="100">
+	<img class="image" src="https://i.imgur.com/bbRpB8c.png" width="70">
 - [ ] [Haddar Classic Garlic Dill Pickle Chips Tub](https://www.kayco.com/product/haddar-classic-garlic-dill-pickle-chips-tub/)
 	
 	#24oz #mild #haddar #jewish #chips 
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/640151-1000x952.png" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2022/05/640151-1.png" width="100">
 - [ ] [Haddar Fiery Spicy Pickle Chips Pouch](https://www.kayco.com/product/haddar-fiery-spicy-pickle-chips-pouch/)
 	
 	#3oz #haddar #pouch #spicy #chips #jewish 
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/640142.png" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2021/11/640142-1.png" width="70">
 - [ ] [Haddar Fiery Spicy Pickle Chips Tub](https://www.kayco.com/product/haddar-fiery-spicy-pickle-chips-tub/)
 	
 	#24oz #haddar #spicy #chips #jewish 
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/640150-1000x944.png" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2022/05/640150-1.png" width="100">
 - [ ] [Haddar Sweet Pickle Chips Pouch](https://www.kayco.com/product/haddar-sweet-with-a-kick-horseradish-pickle-chips-pouch/)
 	
 	#haddar #spicy #sweet #pouch #3oz #jewish #chips  
-	<img class="image" src="https://i.imgur.com/8uNNf93.png" width="100">
+	<img class="image" src="https://i.imgur.com/8uNNf93.png" width="70|">
 - [ ] [Market Pantry Kosher Dill Sandwich Slices](https://www.target.com/p/kosher-dill-sandwich-slices-16oz-market-pantry-8482/-/A-76556965#lnk=sametab)
 	
 	Lame flavor but still good somehow
