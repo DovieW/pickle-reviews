@@ -78,16 +78,20 @@ kanban-plugin: board
 	#wickles
 - [ ] Golden Taste DON'T BUY
 	#golden_taste
-- [ ] Imperial - DON'T BUY
+- [ ] Imperial - too new
 	#imperial
 - [ ] Osem DO THEY MAKE PICKLES? [1](https://www.kroger.com/p/osem-mediterranean-small-pickles/0007693700281)
 	#osem
-- [ ] Williamsburg Pickles DON'T BUY
+- [ ] Williamsburg Pickles - too new
 	#williamsburg_pickles
 - [ ] [Woodstock](https://www.woodstock-foods.com/the-goods.html)
 	#woodstock
 - [ ] [Dietz & Watson](https://www.dietzandwatson.com/complements?subcategory=pickles) [kosher?](https://www.dietzandwatson.com/snacks/dietz-chips)
 	#dietz_watson
+- [ ] [Crisp](https://crisp-brand.patriotpickle.com/) - Patriot Pickle
+	#crisp
+- [ ] [Natural Harvest](https://naturalharvest.patriotpickle.com/) - Patriot Pickle
+	#natural_harvest
 
 
 ## Not Rated
@@ -1095,6 +1099,18 @@ kanban-plugin: board
 	
 	#dietz_watson #32oz #mild  #chips 
 	<img class="image" src="https://i.imgur.com/Zs519xP.png" width="140">
+- [ ] [Crisp The OG](https://crisp-brand.patriotpickle.com/products/#1)
+	
+	#mild #pouch #chips #3oz
+	<img class="image" src="https://crisp-brand.patriotpickle.com/wp-content/uploads/2019/12/product-page-OG-chip.png" width="100">
+- [ ] [Crisp Sweetness](https://crisp-brand.patriotpickle.com/products/#2)
+	
+	#sweet #pouch #chips #3oz
+	<img class="image" src="https://crisp-brand.patriotpickle.com/wp-content/uploads/2019/12/OG-product-yellow-slice.png" width="100">
+- [ ] [Crisp Straight Fire](https://crisp-brand.patriotpickle.com/products/#3)
+	
+	#spicy #pouch #chips #3oz
+	<img class="image" src="https://crisp-brand.patriotpickle.com/wp-content/uploads/2019/12/OG-product-red-slice.png" width="100">
 
 
 ## Best
@@ -1392,6 +1408,12 @@ kanban-plugin: board
 
 ## Ok - Wouldn't Buy
 
+- [ ] [Crisp The OG](https://crisp-brand.patriotpickle.com/products/#4)
+	
+	Decent. Interesting. Not great. Definitely horseradish and sweet.
+	
+	#spicy #sweet #pouch #chips #3oz
+	<img class="image" src="https://crisp-brand.patriotpickle.com/wp-content/uploads/2019/12/OG-product-purple-slice.png" width="100">
 - [ ] [Bubbies Spicy Kosher Dill Pickle Chips](https://www.bubbies.com/products/spicy-kosher-dill-pickle-chips)
 	
 	Pretty good. It seems to be much better when its a bit dried out... like the top bits that aren't sitting in the water.
@@ -1563,6 +1585,18 @@ kanban-plugin: board
 	
 	#woodstock #mild #spears #24oz 
 	<img class="image" src="https://i.imgur.com/9MdB2oX.png" width="140">
+- [ ] [Natural Harvest Garlic Kosher Dill Spears](https://naturalharvest.patriotpickle.com/garlic-kosher-dill-spear/)
+	
+	So forgettable it's not edible.
+	
+	#natural_harvest #mild #spears #32oz 
+	<img class="image" src="https://i.imgur.com/ss1isk9.png" width="200">
+- [ ] [Kosher Dill Pickle Snacks](https://boarshead.com/products/detail/16303-kosher-dill-pickle-snacks)
+	
+	meh
+	
+	#boars_head #mild #chips #3oz 
+	<img class="image" src="https://i.imgur.com/1HOIOwl.png" width="120">
 
 
 ## Bad - Wouldn't Eat
