@@ -331,10 +331,10 @@ kanban-plugin: board
 - [ ] [Gefen Baby Gherkins](https://www.kayco.com/product/gefen-baby-gherkins/)
 	
 	#gefen #gherkins #mild #jewish #24oz 
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/310112.png" width="120">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2023/12/310112.png" width="120">
 - [ ] [Gefen Cucumber In Brine](https://www.kayco.com/product/gefen-cucumber-in-brine-46-oz-can/)
 	#gefen #israeli #46oz #jewish #mild 
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/310300-1000x1799.jpg" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2020/09/310300.png" width="70">
 - [ ] [Gefen Kosher Dill Gherkins](https://www.kayco.com/product/gefen-dill-gherkins/)
 	
 	#gefen #jewish #mild #gherkins #32oz 
@@ -343,15 +343,15 @@ kanban-plugin: board
 	
 	#19oz #gefen #jewish #israeli #mild
 	
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/310301-1000x1385.jpg" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2020/09/310301.png" width="100">
 - [ ] [Gefen Mini Cucumbers In Brine 18-25](https://www.kayco.com/product/gefen-cucumber-in-brine-mini-18-25-can/)
 	#gefen #19oz #israeli #jewish #mild
 	
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/310303-1000x1377.png" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2020/09/310303.png" width="100">
 - [ ] [Gefen Small Cucumbers In Brine 13-17](https://www.kayco.com/product/gefen-cucumber-in-brine-small-13-17-can/)
 	#gefen #jewish #israeli #19oz #mild 
 	
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/310302-1000x1373.jpg" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2020/09/310302.png" width="100">
 - [ ] [Good & Gather Organic Bread & Butter Pickle Chips](https://www.target.com/p/organic-bread-38-butter-pickle-chips-24-fl-oz-good-38-gather-8482/-/A-86901609#lnk=sametab)
 	
 	#good_gather #24oz #sweet #chips
@@ -395,11 +395,11 @@ kanban-plugin: board
 - [ ] [Haddar Sweetie Sweet Pickle Chips Pouch](https://www.kayco.com/product/haddar-sweetie-sweet-pickle-chips-pouch/)
 	
 	#3oz #jewish #haddar #chips #sweet #pouch 
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/640144-1000x1721.png" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2021/11/640144-1.png" width="70">
 - [ ] [Haddar Sweetie Sweet Pickle Chips Tub](https://www.kayco.com/product/haddar-sweetie-sweet-pickle-chips-tub/)
 	
 	#24oz #haddar #jewish #chips #sweet 
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/640152-1000x951.png" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2022/05/640152-1.png" width="100">
 - [ ] [Krunchy Half Sour Pickles](https://www.shopevergreenkosher.com/search/half%20sour?catalogProduct=5517210)
 	
 	#krunchy #sour #wholes #jewish 
@@ -1463,7 +1463,7 @@ kanban-plugin: board
 - [ ] [Haddar Sweet Pickle Chips Tub](https://www.kayco.com/product/haddar-sweet-with-a-kick-horseradish-pickle-chips-tub/)
 	
 	#24oz #haddar #jewish #spicy #sweet #chips
-	<img class="image" src="https://www.kayco.com/wp-content/uploads/import/media/640153-1000x952.png" width="100">
+	<img class="image" src="https://www.kayco.com/wp-content/uploads/2022/05/640153-1.png" width="100">
 - [ ] [Oh Snap! Sassy Bites](https://www.amazon.com/OH-SNAP-Gluten-Free-Fat-Free-Non-GMO/dp/B08RMN2YN6/ref=sr_1_10?crid=3LEBGYL5UFIOY&dib=eyJ2IjoiMSJ9.ancFbuilEImtAGbEBwSG5Yx96hz8IzsPzPjab1pLjHd4JkwNznQ-nqMlbhS0s7pcfKLWGPLK4a30zIroF1tSYvjUvdxuSKtCD7Q57x6933WDFialIzQ3FfPCtU8T3HNqDemSE70brKQOExQsiIH1i7ZT5LyUxlHR1Hbi_dqyq1DiEbQ36IWZWi6eKn04ZjYlmuXpNd-AJzz_wjUN3g3bt4pmmKG9nDO2h1FFhOC9oqE.Wo9lz0_s3RnK4BlJTRgkXBv7SKXWL14KEiovJTX1P7c&dib_tag=se&keywords=oh+snap&qid=1735147505&sprefix=nike+black+and+white+sneakers%2Caps%2C253&sr=8-10)
 	
 	#oh_snap #spicy #chips #sweet
