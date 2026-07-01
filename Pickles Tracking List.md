@@ -1099,17 +1099,13 @@ kanban-plugin: board
 	
 	#dietz_watson #32oz #mild  #chips 
 	<img class="image" src="https://i.imgur.com/Zs519xP.png" width="140">
-- [ ] [Crisp The OG](https://crisp-brand.patriotpickle.com/products/#1)
-	
-	#mild #pouch #chips #3oz
-	<img class="image" src="https://crisp-brand.patriotpickle.com/wp-content/uploads/2019/12/product-page-OG-chip.png" width="100">
 - [ ] [Crisp Sweetness](https://crisp-brand.patriotpickle.com/products/#2)
 	
-	#sweet #pouch #chips #3oz
+	#sweet #pouch #chips #3oz #crisp 
 	<img class="image" src="https://crisp-brand.patriotpickle.com/wp-content/uploads/2019/12/OG-product-yellow-slice.png" width="100">
 - [ ] [Crisp Straight Fire](https://crisp-brand.patriotpickle.com/products/#3)
 	
-	#spicy #pouch #chips #3oz
+	#spicy #pouch #chips #3oz #crisp 
 	<img class="image" src="https://crisp-brand.patriotpickle.com/wp-content/uploads/2019/12/OG-product-red-slice.png" width="100">
 
 
@@ -1408,6 +1404,12 @@ kanban-plugin: board
 
 ## Ok - Wouldn't Buy
 
+- [ ] [Crisp The OG](https://crisp-brand.patriotpickle.com/products/#1)
+	
+	hmm interesting pouch pickle. not a huge fan. little strange
+	
+	#mild #pouch #chips #3oz #crisp 
+	<img class="image" src="https://crisp-brand.patriotpickle.com/wp-content/uploads/2019/12/product-page-OG-chip.png" width="100">
 - [ ] [Crisp The OG](https://crisp-brand.patriotpickle.com/products/#4)
 	
 	Decent. Interesting. Not great. Definitely horseradish and sweet.
